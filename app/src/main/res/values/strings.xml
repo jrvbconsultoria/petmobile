@@ -4,4 +4,5 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Configurações</string>
     <string name="facebook_app_id">1587273554867720</string>
+    <string name="title_activity_home">MapsPet - Busca</string>
 </resources>
