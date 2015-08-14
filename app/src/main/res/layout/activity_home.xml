@@ -19,23 +19,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <SeekBar
+            android:id="@+id/seekRadiusKM"
+            android:max="30"
+            android:progress="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/seekKMShowing"
+            android:text="Procurar por 2 km"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:orientation="vertical" >
+
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="5dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
-                android:orientation="vertical" >
+                android:id="@+id/map"
+                tools:context=".MapsActivity"
+                android:name="com.google.android.gms.maps.SupportMapFragment" />
 
-                <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:tools="http://schemas.android.com/tools"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/map"
-                    tools:context=".MapsActivity"
-                    android:name="com.google.android.gms.maps.SupportMapFragment" />
-
-            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

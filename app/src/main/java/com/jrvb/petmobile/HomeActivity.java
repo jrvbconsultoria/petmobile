@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -21,6 +22,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -32,7 +34,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class HomeActivity extends AppCompatActivity implements OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+public class HomeActivity extends AppCompatActivity implements OnMapReadyCallback,
+        GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener,
+        LocationListener,
+        SeekBar.OnSeekBarChangeListener {
 
     private GoogleApiClient mGoogleApiClient;
     GoogleMap _map;
@@ -40,6 +46,8 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
     private LocationRequest mLocationRequest;
     private Location oldLocation;
+    private LatLng _llActual;
+    Circle myCircle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +55,9 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_home);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        SeekBar bar = (SeekBar)findViewById(R.id.seekRadiusKM); // make seekbar object
+        bar.setOnSeekBarChangeListener(this); // set seekbar listener.
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -147,17 +158,19 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         else if (oldLocation.equals(location))
             return;
 
+        _map.clear();
 
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
+        _llActual = latLng;
 
         MarkerOptions options = new MarkerOptions()
-                .position(latLng)
-                .title("Você esta aqui!");
+            .position(latLng)
+            .title("Você esta aqui!");
+
         _map.addMarker(options);
         _map.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        _map.moveCamera(CameraUpdateFactory.zoomTo(14.0f));
 
         Geocoder geocoder;
         geocoder = new Geocoder(this, Locale.getDefault());
@@ -184,25 +197,42 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private void addCircle(LatLng latLng, double meters)
     {
+        if(myCircle!=null){
+            myCircle.remove();
+        }
+
+        if(meters < 3000 )
+            _map.moveCamera(CameraUpdateFactory.zoomTo(140f));
+        if(meters > 3000 && meters < 10000 )
+            _map.moveCamera(CameraUpdateFactory.zoomTo(11.0f));
+        else if(meters > 10000 && meters < 20000 )
+            _map.moveCamera(CameraUpdateFactory.zoomTo(10.5f));
+        else if(meters > 20000)
+            _map.moveCamera(CameraUpdateFactory.zoomTo(10.0f));
+
         double radiusInMeters = meters;
         int strokeColor = 0x0000FF00; //red outline
         int shadeColor = 0x4400FF00; //opaque red fill
 
         CircleOptions circleOptions = new CircleOptions().center(latLng).radius(radiusInMeters).fillColor(shadeColor).strokeColor(strokeColor).strokeWidth(8);
-        _map.addCircle(circleOptions);
+        myCircle = _map.addCircle(circleOptions);
+    }
 
-        /*double R = 6371d; // earth's mean radius in km
-        double d = radius/R; //radius given in km
-        double lat1 = Math.toRadians(latLng.latitude);
-        double lon1 = Math.toRadians(latLng.longitude);
-        PolylineOptions options = new PolylineOptions();
-        for (int x = 0; x <= 360; x++)
-        {
-            double brng = Math.toRadians(x);
-            double latitudeRad = Math.asin(Math.sin(lat1)*Math.cos(d) + Math.cos(lat1)*Math.sin(d)*Math.cos(brng));
-            double longitudeRad = (lon1 + Math.atan2(Math.sin(brng)*Math.sin(d)*Math.cos(lat1), Math.cos(d)-Math.sin(lat1)*Math.sin(latitudeRad)));
-            options.add(new LatLng(Math.toDegrees(latitudeRad), Math.toDegrees(longitudeRad)));
-        }
-        _map.addPolyline(options.color(Color.BLUE).width(3));*/
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        addCircle(_llActual, progress * 1000);
+
+        TextView seekNow = (TextView)findViewById(R.id.seekKMShowing);
+        seekNow.setText("Procurar por "+ progress +" km");
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
     }
 }
