@@ -43,7 +43,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        if(!settings.getString("name","NOTFOUND").equals("NOTFOUND"))
+
+        if(settings.getString("firstAccess","YES").equals("YES")){
+            Intent intent = new Intent(getApplicationContext(), StepQuaisAnimais.class);
+            startActivity(intent);
+            finish();
+        }
+        else if(!settings.getString("name","NOTFOUND").equals("NOTFOUND"))
         {
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
             startActivity(intent);
