@@ -1,8 +1,14 @@
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    >
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
 
     <LinearLayout
         android:orientation="vertical"
@@ -10,7 +16,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:padding="16dp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -27,11 +34,26 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editNome" />
+                android:id="@+id/editNome"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Data de Nascimento"
+                android:id="@+id/textDataNascimento" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:inputType="date"
+                android:layout_height="wrap_content"
+                android:id="@+id/editDataNascimento" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Raça"
                 android:id="@+id/textRaca" />
@@ -39,19 +61,9 @@
             <Spinner
                 android:id="@+id/selectRacas"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Idade"
-                android:id="@+id/textIdade" />
-
-            <Spinner
-                android:id="@+id/selectIdade"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:focusableInTouchMode="false"
+                android:focusable="false"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -63,7 +75,9 @@
             <Spinner
                 android:id="@+id/selectGenero"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="false"
+                android:focusable="false"/>
 
         </LinearLayout>
 
@@ -75,10 +89,25 @@
             android:orientation="vertical" >
 
             <Button
-                android:id="@+id/btnFindMe"
+                android:id="@+id/btnAddPet"
                 android:layout_width="wrap_content"
                 android:text="Adicionar + 1 Pet"
                 android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingTop="15dip">
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:drawSelectorOnTop="false"
+            android:focusableInTouchMode="false"
+            android:scrollbars="none"
+        />
 
         </LinearLayout>
 
@@ -102,4 +131,5 @@
         </LinearLayout>
 
     </LinearLayout>
+    </ScrollView>
 </LinearLayout>

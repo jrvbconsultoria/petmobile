@@ -15,12 +15,6 @@
         <item>Raça 4</item>
     </string-array>
 
-    <string-array name="idades">
-        <item>Filhote</item>
-        <item>Adulto</item>
-        <item>Idoso</item>
-    </string-array>
-
     <string-array name="generos">
         <item>Macho</item>
         <item>Femea</item>
