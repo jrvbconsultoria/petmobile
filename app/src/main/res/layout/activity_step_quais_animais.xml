@@ -1,55 +1,64 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context="com.jrvb.petmobile.StepQuaisAnimais">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="1.0"
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
 
-    android:orientation="horizontal" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
 
-    <Button
-        android:id="@+id/btnSoCachorro"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:layout_weight="1.0"
-        android:text="Cachorro"
-        android:onClick="clickSoCachorro"/>
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnSoCarro"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/holo_green_light"
-        android:layout_weight="1.0"
-        android:text="Gato" />
+            <Button
+                android:id="@+id/btnSoCachorro"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="@android:color/white"
+                android:onClick="clickSoCachorro"
+                android:text="Cachorro" />
 
-</LinearLayout>
+            <Button
+                android:id="@+id/btnSoCarro"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="@android:color/holo_green_light"
+                android:onClick="clickSoGato"
+                android:text="Gato" />
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="1.0"
-    android:orientation="horizontal" >
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/btnCachorroEGato"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/holo_blue_light"
-        android:layout_weight="1.0"
-        android:text="Cachorro e Gato" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnOutro"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/holo_red_light"
-        android:layout_weight="1.0"
-        android:text="Outro" />
+            <Button
+                android:id="@+id/btnCachorroEGato"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="@android:color/holo_blue_light"
+                android:text="Cachorro e Gato"
+                android:onClick="clickCachorroEGato"/>
 
+            <Button
+                android:id="@+id/btnOutro"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="@android:color/holo_red_light"
+                android:text="Outro" />
+
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

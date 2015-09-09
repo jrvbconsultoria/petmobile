@@ -7,6 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Enumeration;
 
 public class StepQuaisAnimais extends AppCompatActivity {
 
@@ -44,6 +50,22 @@ public class StepQuaisAnimais extends AppCompatActivity {
     public void clickSoCachorro(View v)
     {
         Intent intent = new Intent(getApplicationContext(), StepEspecificacaoPet.class);
+        startActivity(intent);
+    }
+
+    public void clickSoGato(View v)
+    {
+        Intent intent = new Intent(getApplicationContext(), StepEspecificacaoPetGato.class);
+        startActivity(intent);
+    }
+
+    public void clickCachorroEGato(View v)
+    {
+        Intent intent = new Intent(getApplicationContext(), StepEspecificacaoPet.class);
+
+        Bundle b = new Bundle();
+        b.putString("temNext", "S");
+        intent.putExtras(b);
         startActivity(intent);
     }
 }

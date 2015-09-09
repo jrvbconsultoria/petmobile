@@ -1,11 +1,14 @@
 package obj;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Created by jonas on 9/8/2015.
  */
 public class PetMobile {
+    private UUID IdMobile;
+    private int IdWeb;
     private String Nome;
     private Date DataNascimento;
     private int RacaId;
@@ -50,5 +53,21 @@ public class PetMobile {
 
     public void setTipoPetId(int tipoPetId) {
         TipoPetId = tipoPetId;
+    }
+
+    public UUID getIdMobile() {
+        return IdMobile;
+    }
+
+    public void setIdMobile(UUID idMobile) {
+        IdMobile = idMobile;
+    }
+
+    public int getIdWeb() {
+        return IdWeb;
+    }
+
+    public void setIdWeb(int idWeb) {
+        IdWeb = idWeb;
     }
 }

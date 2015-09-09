@@ -5,8 +5,8 @@
     <string name="action_settings">Configurações</string>
     <string name="facebook_app_id">1587273554867720</string>
     <string name="title_activity_home">MapsPet - Busca</string>
-    <string name="title_activity_step_quais_animais">MapsPET</string>
-    <string name="title_activity_step_especificacao_pet">MapsPET</string>
+    <string name="title_activity_step_quais_animais">Quais pets você tem?</string>
+    <string name="title_activity_step_especificacao_pet">Dados Pet - [Cachorro]</string>
 
     <string-array name="racas">
         <item>Raça 1</item>
@@ -19,4 +19,5 @@
         <item>Macho</item>
         <item>Femea</item>
     </string-array>
+    <string name="title_activity_step_especificacao_pet_gato">Dados Pet - [Gato]</string>
 </resources>

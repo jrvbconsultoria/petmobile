@@ -91,7 +91,7 @@
             <Button
                 android:id="@+id/btnAddPet"
                 android:layout_width="wrap_content"
-                android:text="Adicionar + 1 Pet"
+                android:text="Adicionar + 1"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
@@ -100,14 +100,12 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingTop="15dip">
 
-        <ListView
-            android:id="@android:id/list"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:drawSelectorOnTop="false"
-            android:focusableInTouchMode="false"
-            android:scrollbars="none"
-        />
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:stretchColumns="0,1"
+                android:id="@+id/tablePets" >
+            </TableLayout>
 
         </LinearLayout>
 
@@ -116,17 +114,26 @@
             android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingTop="15dip">
 
             <Button
-                android:id="@+id/allow"
+                android:id="@+id/btnVoltar"
                 android:layout_width="0.0dip" android:layout_height="fill_parent"
                 android:text="Voltar"
-                android:layout_weight="1.0" />
+                android:layout_weight="1.0"
+                android:onClick="backButton"/>
 
             <Button
-                android:id="@+id/deny"
+                android:id="@+id/btnSalvar"
                 android:layout_width="0.0dip" android:layout_height="fill_parent"
                 android:text="Salvar"
                 android:layout_weight="1.0"
-                android:onClick="backButton"/>
+                />
+
+            <Button
+                android:id="@+id/btnProximo"
+                android:layout_width="0.0dip" android:layout_height="fill_parent"
+                android:text="Próximo"
+                android:layout_weight="1.0"
+                android:visibility="gone"
+            />
 
         </LinearLayout>
 

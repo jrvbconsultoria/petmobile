@@ -22,7 +22,8 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,15 +37,23 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home" >
+            android:label="@string/title_activity_home"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".StepQuaisAnimais"
-            android:label="@string/title_activity_step_quais_animais" >
+            android:label="@string/title_activity_step_quais_animais"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".StepEspecificacaoPet"
-            android:label="@string/title_activity_step_especificacao_pet" >
+            android:label="@string/title_activity_step_especificacao_pet"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".StepEspecificacaoPetGato"
+            android:label="@string/title_activity_step_especificacao_pet_gato"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
