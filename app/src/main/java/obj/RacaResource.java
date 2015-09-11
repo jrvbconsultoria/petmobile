@@ -1,18 +1,11 @@
 package obj;
 
-import android.widget.ArrayAdapter;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * Created by Jonas_Spohr on 9/10/2015.
  */
 public class RacaResource {
-    public static PetRaca[] GetRacasCachorro(){
-        return new PetRaca[] {
+    public static PetRaca[] GetRacasCachorro() {
+        return new PetRaca[]{
                 new PetRaca(0, "Selecione"),
                 new PetRaca(1, "Affenpinscher"),
                 new PetRaca(2, "Afghan hound"),
@@ -429,6 +422,56 @@ public class RacaResource {
                 new PetRaca(413, "Whippet"),
                 new PetRaca(414, "Yorkshire terrier"),
                 new PetRaca(415, "SDR [Sem Raça Definidida]")
+        };
+    }
+
+    public static PetRaca[] GetRacasGatos() {
+        return new PetRaca[]{
+                new PetRaca(0, "Selecione"),
+                new PetRaca(1, "Abissínio"),
+                new PetRaca(2, "Angorá"),
+                new PetRaca(3, "Balinês"),
+                new PetRaca(4, "Bengal"),
+                new PetRaca(5, "Bobtail Americano"),
+                new PetRaca(6, "Bombay"),
+                new PetRaca(7, "Burmês"),
+                new PetRaca(8, "Chartreux"),
+                new PetRaca(9, "Cingapura"),
+                new PetRaca(10, "Colorpoint de Pêlo Curto"),
+                new PetRaca(11, "Cornish Rex"),
+                new PetRaca(12, "Curl Americano"),
+                new PetRaca(13, "Devon Rex"),
+                new PetRaca(14, "Himalaio"),
+                new PetRaca(15, "Jaguatirica"),
+                new PetRaca(16, "Javanês"),
+                new PetRaca(17, "Korat"),
+                new PetRaca(18, "LaPerm"),
+                new PetRaca(19, "Maine Coon"),
+                new PetRaca(20, "Manx"),
+                new PetRaca(21, "Mau Egípcio"),
+                new PetRaca(22, "Mist Australiano"),
+                new PetRaca(23, "Munchkin"),
+                new PetRaca(24, "Norueguês da Floresta"),
+                new PetRaca(25, "Pelo curto americano"),
+                new PetRaca(26, "Pelo curto brasileiro"),
+                new PetRaca(27, "Pelo curto europeu"),
+                new PetRaca(28, "Pelo curto inglês"),
+                new PetRaca(29, "Persa"),
+                new PetRaca(30, "Pixie-bob"),
+                new PetRaca(31, "Ragdoll"),
+                new PetRaca(32, "Ocicat"),
+                new PetRaca(33, "Russo Azul"),
+                new PetRaca(34, "Sagrado da Birmânia"),
+                new PetRaca(35, "Savannah"),
+                new PetRaca(36, "Scottish Fold"),
+                new PetRaca(37, "Selkirk Rex"),
+                new PetRaca(38, "Siamês"),
+                new PetRaca(39, "Siberiano"),
+                new PetRaca(40, "Somali"),
+                new PetRaca(41, "Sphynx"),
+                new PetRaca(42, "Tonquinês"),
+                new PetRaca(43, "Toyger"),
+                new PetRaca(44, "Usuri")
         };
     }
 }

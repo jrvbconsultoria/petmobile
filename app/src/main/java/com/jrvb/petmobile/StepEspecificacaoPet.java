@@ -82,8 +82,24 @@ public class StepEspecificacaoPet extends AppCompatActivity implements AdapterVi
                 btnProximo.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(_myPets.size() == 0 && !isValid(false)){
+                            Toast.makeText(getApplicationContext(), "Você precisa informar pelo menos os dados de um pet.", Toast.LENGTH_LONG).show();
+                            return;
+                        }else{
+                            if(_myPets.size() == 0){
+                                //salva os dados que foram informado antes de ir para o gato
+                                addNewPet();
+                            }
+                        }
+
                         Intent intent = new Intent(getApplicationContext(), StepEspecificacaoPetGato.class);
+
+                        Bundle b = new Bundle();
+                        b.putString("temAntes", "S");
+                        intent.putExtras(b);
                         startActivity(intent);
+
+                        finish();
                     }
                 });
             }
@@ -178,12 +194,11 @@ public class StepEspecificacaoPet extends AppCompatActivity implements AdapterVi
         tablePets.removeAllViews();
         int index = 0;
 
-        if (_myPets == null)
+        if (_myPets == null || _myPets.size() == 0)
             _myPets = getMyPets("_mypets", getApplicationContext());
 
         if (_myPets == null || _myPets.size() == 0)
             return;
-        ;
 
         // Create a TableRow and give it an ID
         TableRow tr = new TableRow(getApplicationContext());
@@ -287,8 +302,15 @@ public class StepEspecificacaoPet extends AppCompatActivity implements AdapterVi
         finish();
     }
 
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(getApplicationContext(), StepQuaisAnimais.class);
+        startActivity(intent);
+        finish();
+    }
+
     public void savePetProfile(View v) {
-        if(_myPets.size() == 0 && !isValid(false))
+        if((_myPets == null ||  _myPets.size() == 0) && !isValid(false))
         {
             Toast.makeText(this, "Você precisa informar pelo menos os dados de um pet.", Toast.LENGTH_LONG).show();
         }else{
