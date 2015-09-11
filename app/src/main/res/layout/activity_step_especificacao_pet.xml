@@ -34,7 +34,10 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editNome"/>
+                android:id="@+id/editNome"
+                android:focusableInTouchMode="true"
+                android:maxLength="50"
+            />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -48,7 +51,9 @@
                 android:layout_width="match_parent"
                 android:inputType="date"
                 android:layout_height="wrap_content"
-                android:id="@+id/editDataNascimento" />
+                android:id="@+id/editDataNascimento"
+                android:focusableInTouchMode="true"
+                android:maxLength="10"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -125,6 +130,7 @@
                 android:layout_width="0.0dip" android:layout_height="fill_parent"
                 android:text="Salvar"
                 android:layout_weight="1.0"
+                android:onClick="savePetProfile"
                 />
 
             <Button

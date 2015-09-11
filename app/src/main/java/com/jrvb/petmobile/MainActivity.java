@@ -49,13 +49,15 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-        else if(!settings.getString("name","NOTFOUND").equals("NOTFOUND"))
+        else
         {
-            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+            Intent intent = new Intent(getApplicationContext(), PrincipalActivity.class);
             startActivity(intent);
             finish();
         }
 
+
+        //TODO - Put all this code in facelogin
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_main);
 

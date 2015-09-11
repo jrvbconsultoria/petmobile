@@ -51,12 +51,14 @@ public class StepQuaisAnimais extends AppCompatActivity {
     {
         Intent intent = new Intent(getApplicationContext(), StepEspecificacaoPet.class);
         startActivity(intent);
+        finish();
     }
 
     public void clickSoGato(View v)
     {
         Intent intent = new Intent(getApplicationContext(), StepEspecificacaoPetGato.class);
         startActivity(intent);
+        finish();
     }
 
     public void clickCachorroEGato(View v)
@@ -67,5 +69,6 @@ public class StepQuaisAnimais extends AppCompatActivity {
         b.putString("temNext", "S");
         intent.putExtras(b);
         startActivity(intent);
+        finish();
     }
 }
